@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card text-center shadow-lg animated-card">
+        <div class="card-body">
+            <h1 class="card-title">Bienvenue, {{ username }} !</h1>
+            <p class="card-text">Nous sommes ravis de vous accueillir sur notre plateforme. Profitez de votre expérience !</p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+    </div>
+</div>
+
+<!-- Animation CSS -->
+<style>
+    /* Container pour centrer le contenu verticalement et horizontalement */
+    .container {
+        height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    }
+
+    /* Styles de la carte */
+    .card {
+        width: 100%;
+        max-width: 500px; /* Limite la largeur de la carte */
+        border-radius: 15px; /* Coins arrondis */
+        overflow: hidden; /* Évite que le contenu dépasse */
+        transform: translateY(20px); /* Position initiale pour l'animation */
+        opacity: 0; /* Rendre la carte invisible au départ */
+        transition: transform 0.5s ease, opacity 0.5s ease; /* Transition pour l'animation */
+    }
+
+    .card-body {
+        padding: 2rem; /* Espacement interne */
+    }
+
+    /* Effet d'animation lorsque la carte est affichée */
+    .animated-card {
+        animation: fadeInUp 0.5s forwards; /* Animation à appliquer */
+    }
+
+    /* Définition de l'animation */
+    @keyframes fadeInUp {
+        0% {
+            transform: translateY(20px); /* Commencer 20px plus bas */
+            opacity: 0; /* Invisible au départ */
+        }
+        100% {
+            transform: translateY(0); /* Retour à la position initiale */
+            opacity: 1; /* Devenir visible */
+        }
+    }
+
+    /* Bouton stylisé */
+    .btn-primary {
+        background-color: #007bff; /* Couleur primaire */
+        border-color: #007bff;
+        transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour le bouton */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Couleur au survol */
+        transform: translateY(-2px); /* Légère élévation au survol */
+    }
+</style>
+{% endblock %}

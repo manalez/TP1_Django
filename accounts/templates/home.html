@@ -1,0 +1,113 @@
+<!-- myauthproject/accounts/templates/home.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'Accueil</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-section {
+            max-width: 400px;
+        }
+
+        .text-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .text-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            display: inline-block;
+            margin-right: 20px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .buttons a.login {
+            background-color: #007bff;
+        }
+
+        .buttons a.register {
+            background-color: #28a745;
+        }
+
+        .buttons a:hover {
+            opacity: 0.8;
+        }
+
+        .illustration img {
+            width: 300px;
+            height: auto;
+        }
+
+        /* Animation */
+        .container {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1>Authentication</h1>
+            <p>Bienvenue sur notre système sécurisé. Connectez-vous ou inscrivez-vous pour continuer.</p>
+            <div class="buttons">
+                <a href="{% url 'login' %}" class="login">Se connecter</a>
+                <a href="{% url 'register' %}" class="register">S'inscrire</a>
+            </div>
+        </div>
+        <div class="illustration">
+            <img src="{% static 'images/authentication-illustration.jpg' %}" alt="Authentication Illustration">
+        </div>
+        
+    </div>
+</body>
+</html>
